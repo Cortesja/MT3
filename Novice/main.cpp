@@ -1,21 +1,11 @@
 #include <Novice.h>
-#include "Matrix4x4.h"
+#include "Matrix4x4f.h"
+using MyNamespace::Matrix4x4f;
 
 const char kWindowTitle[] = "GC1B_05_コーテスジャレッドアレン";
 
 static const int kRowHeight = 20;
 static const int kColumnWidth = 60;
-
-void MatrixScreenPrintf(int x, int y, const Matrix4x4& matrix, const char* str)
-{
-	Novice::ScreenPrintf(x, y + kRowHeight, "%s", str);
-	for (int row = 0; row < 4; ++row) {
-		for (int column = 0; column < 4; ++column) {
-			Novice::ScreenPrintf(
-				(x + column * kColumnWidth) + kRowHeight, (y + row * kRowHeight) + kRowHeight * 2, "%6.02f", matrix.m[row][column]);
-		}
-	}
-}
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -31,6 +21,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Vector3 rotate{ 0.4f, 1.43f, -0.8f };
 	Vector3 translate{ 2.7f, -4.15f, 1.57f };
 
+	Matrix4x4f temp = {};
+
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
 		// フレームの開始
@@ -44,7 +36,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		Matrix4x4 worldMatrix = MakeAffineMatrix(scale, rotate, translate);
+		Matrix4x4 worldMatrix = temp.MakeAffineMatrix(scale, rotate, translate);
 
 		///
 		/// ↑更新処理ここまで
@@ -54,7 +46,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		MatrixScreenPrintf(0, 0, worldMatrix, "worldMatrix");
+		temp.MatrixScreenPrintf(0, 0, worldMatrix, "worldMatrix");
 
 		///
 		/// ↑描画処理ここまで
