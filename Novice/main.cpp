@@ -1,28 +1,12 @@
 #include <Novice.h>
-#include "Matrix4x4.h"
+#include "Matrix4x4f.h"
+#include "Vector3f.h"
+using MyNamespace::Matrix4x4f;
 
 const char kWindowTitle[] = "GC1B_05_コーテスジャレッドアレン";
 
 static const int kRowHeight = 20;
 static const int kColumnWidth = 60;
-
-void VectorScreenPrintf(int x, int y, const Vector3& vector, const char* label) {
-	Novice::ScreenPrintf(x, y, "%.02f", vector.x);
-	Novice::ScreenPrintf(x + kColumnWidth, y, "%.02f", vector.y);
-	Novice::ScreenPrintf(x + kColumnWidth * 2, y, "%.02f", vector.z);
-	Novice::ScreenPrintf(x + kColumnWidth * 3, y, "%s", label);
-}
-
-void MatrixScreenPrintf(int x, int y, const Matrix4x4& matrix, const char* str)
-{
-	Novice::ScreenPrintf(x, y + kRowHeight, "%s", str);
-	for (int row = 0; row < 4; ++row) {
-		for (int column = 0; column < 4; ++column) {
-			Novice::ScreenPrintf(
-				(x + column * kColumnWidth) + kRowHeight, (y + row * kRowHeight) + kRowHeight * 2, "%6.02f", matrix.m[row][column]);
-		}
-	}
-}
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -35,6 +19,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	char preKeys[256] = { 0 };
 
 	Vector3 rotate{ 0.4f, 1.43f, -0.8f };
+	Matrix4x4f temp = {};
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -49,11 +34,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		Matrix4x4 rotateXMatrix = RotateX(rotate.x);
-		Matrix4x4 rotateYMatrix = RotateY(rotate.y);
-		Matrix4x4 rotateZMatrix = RotateZ(rotate.z);
+		Matrix4x4 rotateXMatrix = temp.RotateX(rotate.x);
+		Matrix4x4 rotateYMatrix = temp.RotateY(rotate.y);
+		Matrix4x4 rotateZMatrix = temp.RotateZ(rotate.z);
 
-		Matrix4x4 rotateXYZMatrix = MakeRotateXYZ(rotate);
+		Matrix4x4 rotateXYZMatrix = temp.MakeRotateXYZ(rotate);
 
 
 		///
@@ -64,10 +49,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		MatrixScreenPrintf(0, 0, rotateXMatrix, "rotateXMatrix");
-		MatrixScreenPrintf(0, kRowHeight * 5, rotateYMatrix, "rotateYMatrix");
-		MatrixScreenPrintf(0, kRowHeight * 5 * 2, rotateZMatrix, "rotateZMatrix");
-		MatrixScreenPrintf(0, kRowHeight * 5 * 3, rotateXYZMatrix, "rotateXYZMatrix");
+		temp.MatrixScreenPrintf(0, 0, rotateXMatrix, "rotateXMatrix");
+		temp.MatrixScreenPrintf(0, kRowHeight * 5, rotateYMatrix, "rotateYMatrix");
+		temp.MatrixScreenPrintf(0, kRowHeight * 5 * 2, rotateZMatrix, "rotateZMatrix");
+		temp.MatrixScreenPrintf(0, kRowHeight * 5 * 3, rotateXYZMatrix, "rotateXYZMatrix");
 
 
 		///
