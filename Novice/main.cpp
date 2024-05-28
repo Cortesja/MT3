@@ -1,5 +1,5 @@
 #include <Novice.h>
-#include "Vector3.h"
+#include "Vector3f.h"
 
 const char kWindowTitle[] = "GC2B_05_コーテスジャレッドアレン";
 
@@ -24,6 +24,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	Vector3 v1{ 1.0f, 3.0f, -5.0f };
 	Vector3 v2{ 4.0f, -1.0f, 2.0f };
+
+	Vector3f tempf = {};
 	float k = 4.0f;
 
 	// ウィンドウの×ボタンが押されるまでループ
@@ -39,12 +41,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓更新処理ここから
 		///
 
-		Vector3 resultAdd = Add(v1, v2);
-		Vector3 resultSubtract = Subtract(v1, v2);
-		Vector3 resultMultiply = Multiply(k, v1);
-		float resultDot = Dot(v1, v2);
-		float resultLength = Length(v1);
-		Vector3 resultNormalize = Normalize(v2);
+		Vector3 resultAdd = tempf.Add(v1, v2);
+		Vector3 resultSubtract = tempf.Subtract(v1, v2);
+		Vector3 resultMultiply = tempf.Multiply(k, v1);
+		float resultDot = tempf.Dot(v1, v2);
+		float resultLength = tempf.Length(v1);
+		Vector3 resultNormalize = tempf.Normalize(v2);
 
 		///
 		/// ↑更新処理ここまで
