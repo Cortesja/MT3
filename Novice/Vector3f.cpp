@@ -1,8 +1,8 @@
-#include "Vector3.h"
+#include "Vector3f.h"
 #include "Novice.h"
 #include <math.h>
 
-Vector3 Add(const Vector3& v1, const Vector3& v2) {
+Vector3 Vector3f::Add(const Vector3& v1, const Vector3& v2) {
 	Vector3 result{ 0 };
 	result.x = v1.x + v2.x;
 	result.y = v1.y + v2.y;
@@ -10,7 +10,7 @@ Vector3 Add(const Vector3& v1, const Vector3& v2) {
 	return result;
 }
 
-Vector3 Subtract(const Vector3& v1, const Vector3& v2)
+Vector3 Vector3f::Subtract(const Vector3& v1, const Vector3& v2)
 {
 	Vector3 result = { 0 };
 	result.x = v1.x - v2.x;
@@ -19,7 +19,7 @@ Vector3 Subtract(const Vector3& v1, const Vector3& v2)
 	return result;
 }
 
-Vector3 Multiply(float scalar, const Vector3& v)
+Vector3 Vector3f::Multiply(float scalar, const Vector3& v)
 {
 	Vector3 result = { 0 };
 	result.x = scalar * v.x;
@@ -28,13 +28,13 @@ Vector3 Multiply(float scalar, const Vector3& v)
 	return result;
 }
 
-float Dot(const Vector3& v1, const Vector3& v2)
+float Vector3f::Dot(const Vector3& v1, const Vector3& v2)
 {
 	float result = ((v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z));
 	return result;
 }
 
-float Length(const Vector3& v)
+float Vector3f::Length(const Vector3& v)
 {
 	Vector3 result;
 	result.x = v.x * v.x;
@@ -45,7 +45,7 @@ float Length(const Vector3& v)
 	return length;
 }
 
-Vector3 Normalize(const Vector3& v)
+Vector3 Vector3f::Normalize(const Vector3& v)
 {
 	Vector3 result;
 	float len = Length(v);
