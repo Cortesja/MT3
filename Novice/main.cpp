@@ -1,4 +1,6 @@
 #include <Novice.h>
+#include "Matrix4x4f.h"
+using MyNamespace::Matrix4x4f;
 
 const char kWindowTitle[] = "GC2B_05_コーテスジャレッドアレン";
 
