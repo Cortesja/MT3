@@ -3,7 +3,18 @@
 
 class Vector3f
 {
+private:
+	static const int kRowHeight = 20;
+	static const int kColumnWidth = 60;
 public:
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	/// <param name="vector"></param>
+	/// <param name="label"></param>
+	void VectorScreenPrintf(int x, int y, const Vector3& vector, const char* label);
 	/// <summary>
 	/// 加算
 	/// </summary>
