@@ -1,13 +1,13 @@
 #include "Vector3f.h"
-//#include "Novice.h"
+#include "Novice.h"
 #include <math.h>
 
-//void Vector3f::VectorScreenPrintf(int x, int y, const Vector3& vector, const char* label) {
-//	Novice::ScreenPrintf(x, y, "%.02f", vector.x);
-//	Novice::ScreenPrintf(x + kColumnWidth, y, "%.02f", vector.y);
-//	Novice::ScreenPrintf(x + kColumnWidth * 2, y, "%.02f", vector.z);
-//	Novice::ScreenPrintf(x + kColumnWidth * 3, y, "%s", label);
-//}
+void Vector3f::VectorScreenPrintf(int x, int y, const Vector3& vector, const char* label) {
+	Novice::ScreenPrintf(x, y, "%.02f", vector.x);
+	Novice::ScreenPrintf(x + kColumnWidth, y, "%.02f", vector.y);
+	Novice::ScreenPrintf(x + kColumnWidth * 2, y, "%.02f", vector.z);
+	Novice::ScreenPrintf(x + kColumnWidth * 3, y, "%s", label);
+}
 
 Vector3 Vector3f::Add(const Vector3& v1, const Vector3& v2) {
 	Vector3 result{ 0 };
@@ -61,5 +61,14 @@ Vector3 Vector3f::Normalize(const Vector3& v)
 	result.y = v.y / len;
 	result.z = v.z / len;
 
+	return result;
+}
+
+Vector3 Vector3f::Cross(const Vector3& v1, const Vector3& v2)
+{
+	Vector3 result = {};
+	result.x = (v1.y * v2.z) - (v1.z * v2.y);
+	result.y = (v1.z * v2.x) - (v1.x * v2.z);
+	result.z = (v1.x * v2.y) - (v1.y * v2.x);
 	return result;
 }

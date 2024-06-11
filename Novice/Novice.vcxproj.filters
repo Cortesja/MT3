@@ -38,10 +38,13 @@
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\StringUtility.cpp">
       <Filter>KamataEngine\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix4x4.cpp">
+    <ClCompile Include="Triangle.cpp">
       <Filter>KamataEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Vector3.cpp">
+    <ClCompile Include="Matrix4x4f.cpp">
+      <Filter>KamataEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3f.cpp">
       <Filter>KamataEngine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,6 +119,15 @@
     <ClInclude Include="C:\KamataEngine\DirectXGame\2d\ImGuiManager.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h">
       <Filter>KamataEngine\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>KamataEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3f.h">
+      <Filter>KamataEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4f.h">
+      <Filter>KamataEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

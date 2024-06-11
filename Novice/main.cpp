@@ -1,6 +1,8 @@
 #include <Novice.h>
-
+#include "Triangle.h"
 const char kWindowTitle[] = "GC2B_05_コーテスジャレッドアレン";
+const static int kWindowWidth = 1280;
+const static int kWindowHeight = 720;
 
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
@@ -9,8 +11,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
 	// キー入力結果を受け取る箱
-	char keys[256] = {0};
-	char preKeys[256] = {0};
+	char keys[256] = { 0 };
+	char preKeys[256] = { 0 };
+
+	Triangle* triangle = new Triangle();
+	triangle->Initialize(kWindowHeight, kWindowWidth);
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -24,6 +29,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓更新処理ここから
 		///
+	
+		triangle->Update(keys, preKeys);
 
 		///
 		/// ↑更新処理ここまで
@@ -32,6 +39,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓描画処理ここから
 		///
+	
+		triangle->Draw();
 
 		///
 		/// ↑描画処理ここまで

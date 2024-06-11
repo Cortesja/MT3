@@ -55,5 +55,12 @@ public:
 	/// <param name="v"></param>
 	/// <returns></returns>
 	Vector3 Normalize(const Vector3& v);
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="v1"></param>
+	/// <param name="v2"></param>
+	/// <returns></returns>
+	Vector3 Cross(const Vector3& v1, const Vector3& v2);
 };
 
