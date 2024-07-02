@@ -2,7 +2,6 @@
 #include "Vector3f.h"
 
 const char kWindowTitle[] = "GC2B_05_コーテスジャレッドアレン";
-
 static const int kcolumnWidth = 60;
 static const int kRowHeight = 30;
 
