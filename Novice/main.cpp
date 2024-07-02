@@ -3,7 +3,6 @@
 using MyNamespace::Matrix4x4f;
 
 const char kWindowTitle[] = "GC2B_05_コーテスジャレッドアレン";
-
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
