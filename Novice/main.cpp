@@ -3,7 +3,6 @@
 using MyNamespace::Matrix4x4f;
 
 const char kWindowTitle[] = "GC1B_05_コーテスジャレッドアレン";
-
 static const int kRowHeight = 20;
 static const int kColumnWidth = 60;
 
