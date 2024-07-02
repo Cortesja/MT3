@@ -1,5 +1,6 @@
 #include <Novice.h>
 #include "Triangle.h"
+
 const char kWindowTitle[] = "GC2B_05_コーテスジャレッドアレン";
 const static int kWindowWidth = 1280;
 const static int kWindowHeight = 720;
