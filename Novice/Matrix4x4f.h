@@ -152,6 +152,5 @@ namespace MyNamespace {
 		/// <param name="maxDepth"></param>
 		/// <returns></returns>
 		Matrix4x4 MakeViewportMatrix(float left, float top, float width, float height, float minDepth, float maxDepth);
-
 	};
 }
